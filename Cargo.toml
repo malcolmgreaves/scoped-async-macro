@@ -1,0 +1,23 @@
+[package]
+name = "scoped-async-macro"
+version = "0.1.0"
+edition = "2024"
+description = "A macro for ergonomic scoped async tasks with borrowed data"
+license-file = "LICENSE"
+repository = "https://github.com/malcolmgreaves/scoped-async-macro"
+readme = "README.md"
+keywords = ["async", "scoped", "macro", "tokio"]
+categories = ["asynchronous", "rust-patterns"]
+
+[dependencies]
+async-scoped = { version = "0.9.0", features = ["use-tokio"] }
+tokio = { version = "1.50.0", features = ["sync"] }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["async_tokio"] }
+futures = "0.3.32"
+tokio = { version = "1.50.0", features = ["macros", "rt-multi-thread", "time", "sync"] }
+
+[[bench]]
+name = "scoped_async_bench"
+harness = false
